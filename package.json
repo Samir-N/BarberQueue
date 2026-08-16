@@ -1,0 +1,35 @@
+{
+  "name": "mongodb",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "seed": "node config/seedServices.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Samir-N/BarberQueue.git"
+  },
+  "keywords": [],
+  "author": "Niroula Samir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Samir-N/BarberQueue/issues"
+  },
+  "homepage": "https://github.com/Samir-N/BarberQueue#readme",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "colors": "^1.4.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.1",
+    "morgan": "^1.10.1",
+    "nodemon": "^3.1.10",
+    "react-router-dom": "^7.9.4",
+    "socket.io": "^4.8.1"
+  }
+}

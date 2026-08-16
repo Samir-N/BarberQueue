@@ -1,0 +1,274 @@
+/* ============================================
+   GLOBAL DESIGN SYSTEM - MONGODB BARBER APP
+   ============================================ */
+
+/* CSS Variables - Color Palette */
+:root {
+  /* PRIMARY COLORS */
+  --color-deep-blue: #1B263B;
+  --color-soft-blue: #415A77;
+  --color-navy: #0D1B2A;
+  
+  /* SECONDARY COLORS */
+  --color-burgundy: #7C2F2F;
+  --color-terracotta: #C85D5D;
+  
+  /* ACCENT COLORS */
+  --color-gold: #FFC300;
+  --color-teal: #3B9C9C;
+  
+  /* BACKGROUND COLORS */
+  --color-warm-gray: #F9F9F6;
+  --color-white: #FFFFFF;
+  --color-light-gray: #E5E7EB;
+  
+  /* TEXT COLORS */
+  --color-near-black: #222222;
+  --color-cool-gray: #6B7280;
+  
+  /* STATUS COLORS */
+  --color-success: #319B6A;
+  --color-error: #C12C2C;
+  --color-warning: #FFB300;
+  
+  /* SPACING */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  
+  /* BORDER RADIUS */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --radius-pill: 9999px;
+  
+  /* SHADOWS */
+  --shadow-sm: 0 1px 2px rgba(27, 38, 59, 0.05);
+  --shadow-md: 0 4px 12px rgba(27, 38, 59, 0.08);
+  --shadow-lg: 0 8px 24px rgba(27, 38, 59, 0.12);
+  
+  /* TYPOGRAPHY */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  
+  /* BREAKPOINTS (for reference, use MUI breakpoints in components) */
+  --breakpoint-xs: 0px;
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 960px;
+  --breakpoint-lg: 1280px;
+  --breakpoint-xl: 1920px;
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-warm-gray);
+  color: var(--color-near-black);
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Typography Scale */
+h1 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  color: var(--color-near-black);
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  color: var(--color-near-black);
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  color: var(--color-near-black);
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--color-near-black);
+}
+
+p, body {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--color-cool-gray);
+}
+
+/* Desktop Typography Overrides */
+@media (min-width: 960px) {
+  h1 {
+    font-size: 48px;
+    line-height: 56px;
+  }
+  
+  h2 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+  
+  h3 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Focus Styles for Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Button Base Styles (will be overridden by MUI but good fallback) */
+button {
+  min-height: 44px; /* Touch target for mobile */
+  min-width: 44px;
+  font-family: var(--font-family);
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+/* Link Styles */
+a {
+  color: var(--color-deep-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-soft-blue);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-soft-blue);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-deep-blue);
+}
+
+/* Card Base Styles */
+.card-base {
+  background: var(--color-white);
+  border: 1px solid var(--color-light-gray);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.card-base:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Status Chip Base Styles */
+.status-chip {
+  height: 28px;
+  padding: 6px 12px;
+  border-radius: var(--radius-lg);
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-success {
+  background-color: var(--color-success);
+  color: var(--color-white);
+}
+
+.status-error {
+  background-color: var(--color-error);
+  color: var(--color-white);
+}
+
+.status-warning {
+  background-color: var(--color-warning);
+  color: var(--color-near-black);
+}
+
+.status-pending {
+  background-color: var(--color-soft-blue);
+  color: var(--color-white);
+}
+
+.status-info {
+  background-color: var(--color-teal);
+  color: var(--color-white);
+}
+
+/* Mobile-First Utilities */
+@media (max-width: 599px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 600px) {
+  .show-mobile-only {
+    display: none !important;
+  }
+}
+
+/* Safe Area Insets for Mobile Devices */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+}
+

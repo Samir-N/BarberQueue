@@ -55,7 +55,7 @@ const Navbar = () => {
               letterSpacing: '-0.5px',
             }}
           >
-            Barber App
+          asdfasdfsad
           </Typography>
           <Button
             onClick={handleLogout}

@@ -80,7 +80,8 @@ const BarberLogin = () => {
           backgroundColor: '#FFFFFF',
         }}
       >
-        <Box sx={{ textAlign: 'center', mb: 4 }}>
+        <Box sx={{ textAlign: 'center', mb: 4 }}> 
+       
           <Box
             sx={{
               width: 64,

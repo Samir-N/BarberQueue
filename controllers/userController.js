@@ -2,6 +2,14 @@ const userModel = require('../models/userModels.js');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+const getJwtSecret = () => {
+  const secret = process.env.SECRET_KEY;
+  if (!secret) {
+    throw new Error('SECRET_KEY is not configured in environment variables');
+  }
+  return secret;
+};
+
 const loginController = async (req, res) => {
   try {
     // Extract phone and password from request body
@@ -38,10 +46,20 @@ const loginController = async (req, res) => {
     const { name, phone: userPhone, role } = user;
     const safeUser = { name, phone: userPhone, role };
 
-    // Generate JWT token
+    let secretKey;
+    try {
+      secretKey = getJwtSecret();
+    } catch (secretError) {
+      console.error('Login controller - SECRET_KEY validation failed:', secretError.message);
+      return res.status(500).send({
+        success: false,
+        message: 'Server configuration error',
+      });
+    }
+
     const token = jwt.sign(
       { userId: user._id, phone: user.phone },
-      process.env.SECRET_KEY,
+      secretKey,
       { expiresIn: "1h" }
     );
 
@@ -53,10 +71,10 @@ const loginController = async (req, res) => {
     });
 
   } catch (error) {
+    console.error('Error in login controller:', error);
     res.status(500).send({
-      message: "Error in login controller",
-      error: error.message,
-      success: false
+      success: false,
+      message: error.message || 'Error in login controller',
     });
   }
 };

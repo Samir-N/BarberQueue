@@ -54,7 +54,16 @@ const BarberLogin = () => {
       }
     } catch (error) {
       dispatch(hideLoading());
-      dispatch(showAlert({ message: "Something went wrong!", type: "error" }));
+      console.error("Login error:", error.response?.data);
+      dispatch(
+        showAlert({
+          message:
+            error.response?.data?.message ||
+            error.message ||
+            "Something went wrong!",
+          type: "error",
+        })
+      );
     }
   };
 

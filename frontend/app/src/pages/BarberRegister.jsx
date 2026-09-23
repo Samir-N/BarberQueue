@@ -53,7 +53,7 @@ const BarberRegister = () => {
         }));
         dispatch(showAlert({message: "Registration Successful!", type: "success", duration: 2000}));
         setTimeout(() => {
-          navigate('/');  
+          navigate('/user/dashboard');  
         }, 1500);
       } else {
         dispatch(showAlert({message: response.data.message || "Registration failed!", type: "error"}));

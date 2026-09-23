@@ -122,35 +122,31 @@ const PersonalBookings = () => {
   return (
     <Box sx={{ width: "100%" }}>
       <Box sx={{ width: "100%" }}>
-      
-          {
-            isVisible ?
-            (
-                <Card
-          sx={{
-            borderRadius: 2,
-            bgcolor: "#FFFFFF",
-            border: "1px solid #E5E7EB",
-            p: { xs: 2, sm: 3 },
-            boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
-            mb: 2,
-          }}
-        >
-          <EditBooking />
+        {isVisible && (
+          <Card
+            sx={{
+              borderRadius: 2,
+              bgcolor: "#FFFFFF",
+              border: "1px solid #E5E7EB",
+              p: { xs: 2, sm: 3 },
+              boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
+              mb: 2,
+            }}
+          >
+            <EditBooking />
           </Card>
+        )}
 
-            )
-            :
-<Card
-          sx={{
-            borderRadius: 2,
-            bgcolor: "#FFFFFF",
-            border: "1px solid #E5E7EB",
-            p: { xs: 2, sm: 3 },
-            boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
-          }}
-        >
-
+        {!isVisible && (
+          <Card
+            sx={{
+              borderRadius: 2,
+              bgcolor: "#FFFFFF",
+              border: "1px solid #E5E7EB",
+              p: { xs: 2, sm: 3 },
+              boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
+            }}
+          >
           <Typography
             sx={{
               fontSize: { xs: 16, sm: 18 },
@@ -216,10 +212,8 @@ const PersonalBookings = () => {
               Delete
             </Button>
           </Box>
-        </Card>
-        }
-
-        
+          </Card>
+        )}
       </Box>
 
       {/* Delete Confirmation Dialog */}
